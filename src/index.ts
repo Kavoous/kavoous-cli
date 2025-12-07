@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import figlet from 'figlet';
 import chalk from 'chalk';
 import { ASCII_ART, COLORS } from './constants';
 import { AuthCommand } from './commands/auth.command';
@@ -20,26 +19,14 @@ class KavousCLI {
   private setupProgram(): void {
     this.program
       .name('kavoous')
-      .description('Beautiful CLI for managing applications with Kavous')
+      .description('The command line interface for Kavoous')
       .version('1.0.0')
       .hook('preAction', () => this.showBanner());
   }
 
   private showBanner(): void {
     console.log(chalk.hex(COLORS.primary)(ASCII_ART));
-    
-    // Optional: Show ASCII art with figlet
-    if (Math.random() > 0.5) {
-      console.log(
-        chalk.hex(COLORS.secondary)(
-          figlet.textSync('KAVOOUS', {
-            font: 'Small',
-            horizontalLayout: 'default'
-          })
-        )
-      );
-    }
-    
+
     console.log();
   }
 
@@ -48,7 +35,7 @@ class KavousCLI {
     new AuthCommand().register(this.program);
     new AppsCommand().register(this.program);
     new FilesCommand().register(this.program);
-    
+
     // Default command (show help)
     this.program.action(() => {
       this.program.help();

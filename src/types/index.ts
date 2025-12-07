@@ -30,3 +30,38 @@ export interface Config {
   apiEndpoint: string;
   defaultFormat: 'table' | 'json' | 'yaml';
 }
+
+export interface AppCreateOptions {
+  name: string;
+  platform: PlatformType;
+  appType: AppType;
+  sourceType: SourceType;
+  githubUrl?: string;
+  email?: string;
+  description: string;
+  version: string;
+  database?: DatabaseType;
+  createConfigFile: boolean;
+}
+
+export type PlatformType = 
+  | 'node' | 'laravel' | 'php' | 'python' | 'django' | 'flask' 
+  | 'dotnet' | 'go' | 'ruby' | 'java' | 'js' | 'ts' 
+  | 'asp' | 'wordpress' | 'koyline' | 'csharp';
+
+export type AppType = 'private' | 'public';
+export type SourceType = 'github' | 'upload' | 'none';
+export type DatabaseType = 
+  | 'mysql' | 'postgresql' | 'mongodb' | 'sqlite' 
+  | 'redis' | 'none' | 'custom';
+
+export interface KavoousConfig {
+  platform: PlatformType;
+  name: string;
+  version: string;
+  type: AppType;
+  database?: DatabaseType;
+  createdAt: string;
+  updatedAt: string;
+  configVersion: string;
+}

@@ -1,5 +1,4 @@
 import open from 'open';
-import axios from 'axios';
 import Configstore from 'configstore';
 import { AuthResponse, User } from '../types';
 import { API_CONFIG, CONFIG_KEYS } from '../constants';
