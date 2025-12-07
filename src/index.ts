@@ -32,9 +32,9 @@ class KavousCLI {
 
   private registerCommands(): void {
     // Register all commands
-    new AuthCommand().register(this.program);
-    new AppsCommand().register(this.program);
-    new FilesCommand().register(this.program);
+  new AuthCommand().register(this.program);
+  new AppsCommand().register(this.program);
+  new FilesCommand().register(this.program);
 
     // Default command (show help)
     this.program.action(() => {
